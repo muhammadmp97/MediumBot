@@ -1,0 +1,69 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "f1001506197c089e5a898f4f35ef319a",
+    "packages": [
+        {
+            "name": "webpajooh/telebot",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WebPajooh/TeleBot.git",
+                "reference": "95006cbff3f611b18043e8b2fe7c85c18727ec6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WebPajooh/TeleBot/zipball/95006cbff3f611b18043e8b2fe7c85c18727ec6f",
+                "reference": "95006cbff3f611b18043e8b2fe7c85c18727ec6f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "TeleBot\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "WebPajooh",
+                    "email": "webpajooh@gmail.com"
+                }
+            ],
+            "description": "A minimal tool for Telegram bot developers",
+            "keywords": [
+                "telegram",
+                "telegram bot",
+                "telegram bot api",
+                "telegram php",
+                "telegram sdk"
+            ],
+            "support": {
+                "issues": "https://github.com/WebPajooh/TeleBot/issues",
+                "source": "https://github.com/WebPajooh/TeleBot/tree/v1.3.0"
+            },
+            "time": "2022-06-05T17:05:36+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

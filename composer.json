@@ -1,0 +1,20 @@
+{
+    "name": "webpajooh/mediumbot",
+    "description": "A contact bot to hide your personal account from people",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "WebPajooh",
+            "email": "webpajooh@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Webpajooh\\Mediumbot\\": "src/"
+        }
+    },
+    "require": {
+        "webpajooh/telebot": "^1.3"
+    }
+}
