@@ -29,7 +29,7 @@ try {
     $text .= "⤵️ <b>Line:</b> {$th->getLine()}";
 
     $tg->sendMessage([
-        'chat_id' => $settings['owner_id'],
+        'chat_id' => $settings->owner_id,
         'text' => $text,
         'parse_mode' => 'html',
     ]);
