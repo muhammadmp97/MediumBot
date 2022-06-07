@@ -11,6 +11,10 @@ try {
     $tg = new TeleBot($settings->bot_token);
 
     $tg->listen('delete_%d_%d', function ($chatId, $messageId) use ($tg, $settings) {
+        if ($tg->user->id != $settings->owner_id) {
+            return;
+        }
+
         $result = $tg->deleteMessage([
             'chat_id' => $chatId,
             'message_id' => $messageId,
@@ -18,7 +22,7 @@ try {
 
         if ($result) {
             $tg->editMessageText([
-                'chat_id' => $tg->chat->id,
+                'chat_id' => $tg->user->id,
                 'message_id' => $tg->message->message_id,
                 'text' => 'This message was deleted!',
             ]);
