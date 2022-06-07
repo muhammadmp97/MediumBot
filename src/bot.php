@@ -7,7 +7,21 @@ require_once '../vendor/autoload.php';
 $settings = json_decode(file_get_contents('../resources/settings.json'));
 
 try {
-    $tg = new TeleBot($settings['bot_token']);
+    $tg = new TeleBot($settings->bot_token);
+
+    if ($tg->user->id == $settings->owner_id) {
+        $tg->copyMessage([
+            'from_chat_id' => $settings->owner_id,
+            'chat_id' => $tg->message->reply_to_message->forward_from->id,
+            'message_id' => $tg->message->message_id,
+        ]);
+    } else {
+        $tg->forwardMessage([
+            'from_chat_id' => $tg->user->id,
+            'chat_id' => $settings->owner_id,
+            'message_id' => $tg->message->message_id,
+        ]);
+    }
 } catch (Throwable $th) {
     $text = "‼️ <b>Something went wrong</b>\n\n";
     $text .= "🔻 <b>Message:</b> {$th->getMessage()}\n";
