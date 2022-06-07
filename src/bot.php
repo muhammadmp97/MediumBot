@@ -14,6 +14,7 @@ try {
             'from_chat_id' => $settings->owner_id,
             'chat_id' => $tg->message->reply_to_message->forward_from->id,
             'message_id' => $tg->message->message_id,
+            'protect_content' => $settings->protect_content,
         ]);
     } else {
         $tg->forwardMessage([

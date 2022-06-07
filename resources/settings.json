@@ -1,4 +1,5 @@
 {
     "bot_token": "BOT_TOKEN",
-    "owner_id": "0123456789"
+    "owner_id": "0123456789",
+    "protect_content": false
 }
