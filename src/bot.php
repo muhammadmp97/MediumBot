@@ -52,14 +52,16 @@ try {
         ]);
     }
 } catch (Throwable $th) {
-    $text = "‼️ <b>Something went wrong</b>\n\n";
-    $text .= "🔻 <b>Message:</b> {$th->getMessage()}\n";
-    $text .= "📃 <b>File:</b> <code>{$th->getFile()}</code>\n";
-    $text .= "⤵️ <b>Line:</b> {$th->getLine()}";
-
-    $tg->sendMessage([
-        'chat_id' => $settings->owner_id,
-        'text' => $text,
-        'parse_mode' => 'html',
-    ]);
+    if ($settings->debug_mode) {
+        $text = "‼️ <b>Something went wrong</b>\n\n";
+        $text .= "🔻 <b>Message:</b> {$th->getMessage()}\n";
+        $text .= "📃 <b>File:</b> <code>{$th->getFile()}</code>\n";
+        $text .= "⤵️ <b>Line:</b> {$th->getLine()}";
+        
+        $tg->sendMessage([
+            'chat_id' => $settings->owner_id,
+            'text' => $text,
+            'parse_mode' => 'html',
+        ]);
+    }
 }

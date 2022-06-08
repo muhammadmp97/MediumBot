@@ -1,5 +1,6 @@
 {
     "bot_token": "BOT_TOKEN",
     "owner_id": "0123456789",
-    "protect_content": false
+    "protect_content": false,
+    "debug_mode": true
 }
