@@ -1,6 +1,5 @@
 <?php
 
-use TeleBot\InlineKeyboard;
 use TeleBot\TeleBot;
 
 require_once '../vendor/autoload.php';
@@ -38,15 +37,11 @@ try {
         ]);
 
         if (property_exists($messageId, 'message_id')) {
-            $keyboard = (new InlineKeyboard())
-                ->addCallbackButton('❌ Undo', "delete_{$tg->message->reply_to_message->forward_from->id}_{$messageId->message_id}")
-                ->get();
-
             $tg->sendMessage([
                 'chat_id' => $settings->owner_id,
                 'reply_to_message_id' => $tg->message->message_id,
                 'text' => 'Your message has been sent!',
-                'reply_markup' => $keyboard,
+                'reply_markup' => getUndoKeyboard($tg->message->reply_to_message->forward_from->id, $messageId->message_id),
             ]);
         }
     } else {

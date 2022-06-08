@@ -12,7 +12,10 @@
     "autoload": {
         "psr-4": {
             "Webpajooh\\Mediumbot\\": "src/"
-        }
+        },
+        "files": [
+            "./src/includes/keyboards.php"
+        ]
     },
     "require": {
         "webpajooh/telebot": "^1.3"
