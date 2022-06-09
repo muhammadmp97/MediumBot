@@ -59,6 +59,35 @@ try {
         }
     });
 
+    $tg->listen('!unblock', function () use ($tg, $settings, $strings) {
+        if ($tg->user->id != $settings->owner_id) {
+            return;
+        }
+
+        if (! property_exists($tg->message, 'reply_to_message')) {
+            return;
+        }
+
+        $userId = $tg->message->reply_to_message->forward_from->id;
+
+        if (in_array($userId, $settings->blocked_users)) {
+            array_splice($settings->blocked_users, array_search($userId, $settings->blocked_users));
+            file_put_contents('../resources/settings.json', json_encode($settings));
+
+            $tg->sendMessage([
+                'chat_id' => $settings->owner_id,
+                'reply_to_message_id' => $tg->message->message_id,
+                'text' => $strings->user_unblocked,
+            ]);
+        } else {
+            $tg->sendMessage([
+                'chat_id' => $settings->owner_id,
+                'reply_to_message_id' => $tg->message->message_id,
+                'text' => $strings->user_not_blocked,
+            ]);
+        }
+    });
+
     if ($tg->user->id == $settings->owner_id) {
         try {
             $messageId = $tg->copyMessage([

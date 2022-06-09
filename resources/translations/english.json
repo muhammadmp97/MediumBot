@@ -3,5 +3,7 @@
     "message_deleted": "This message was deleted!",
     "blocked_by_user": "❕ This user has blocked the bot!",
     "user_blocked": "This user is now blocked.",
-    "user_already_blocked": "❕ This user has already been blocked!"
+    "user_already_blocked": "❕ This user has already been blocked!",
+    "user_unblocked": "User unblocked successfully.",
+    "user_not_blocked": "❕ This user is not blocked!"
 }
