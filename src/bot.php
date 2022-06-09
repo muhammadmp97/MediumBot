@@ -1,5 +1,6 @@
 <?php
 
+use TeleBot\Exceptions\TeleBotException;
 use TeleBot\TeleBot;
 
 require_once '../vendor/autoload.php';
@@ -30,12 +31,24 @@ try {
     });
 
     if ($tg->user->id == $settings->owner_id) {
-        $messageId = $tg->copyMessage([
-            'from_chat_id' => $settings->owner_id,
-            'chat_id' => $tg->message->reply_to_message->forward_from->id,
-            'message_id' => $tg->message->message_id,
-            'protect_content' => $settings->protect_content,
-        ]);
+        try {
+            $messageId = $tg->copyMessage([
+                'from_chat_id' => $settings->owner_id,
+                'chat_id' => $tg->message->reply_to_message->forward_from->id,
+                'message_id' => $tg->message->message_id,
+                'protect_content' => $settings->protect_content,
+            ]);
+        } catch (TeleBotException $e) {
+            if ($e->getMessage() == 'Forbidden: bot was blocked by the user') {
+                $tg->sendMessage([
+                    'chat_id' => $settings->owner_id,
+                    'reply_to_message_id' => $tg->message->message_id,
+                    'text' => $strings->blocked_by_user,
+                ]);
+
+                die;
+            }
+        }
 
         if (property_exists($messageId, 'message_id')) {
             $tg->sendMessage([
