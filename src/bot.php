@@ -4,12 +4,13 @@ use TeleBot\TeleBot;
 
 require_once '../vendor/autoload.php';
 
-$settings = json_decode(file_get_contents('../resources/settings.json'));
-
 try {
+    $settings = json_decode(file_get_contents('../resources/settings.json'));
+    $strings = json_decode(file_get_contents("../resources/translations/{$settings->language}.json"));
+
     $tg = new TeleBot($settings->bot_token);
 
-    $tg->listen('delete_%d_%d', function ($chatId, $messageId) use ($tg, $settings) {
+    $tg->listen('delete_%d_%d', function ($chatId, $messageId) use ($tg, $settings, $strings) {
         if ($tg->user->id != $settings->owner_id) {
             return;
         }
@@ -23,7 +24,7 @@ try {
             $tg->editMessageText([
                 'chat_id' => $tg->user->id,
                 'message_id' => $tg->message->message_id,
-                'text' => 'This message was deleted!',
+                'text' => $strings->message_deleted,
             ]);
         }
     });
@@ -40,7 +41,7 @@ try {
             $tg->sendMessage([
                 'chat_id' => $settings->owner_id,
                 'reply_to_message_id' => $tg->message->message_id,
-                'text' => 'Your message has been sent!',
+                'text' => $strings->message_sent,
                 'reply_markup' => getUndoKeyboard($tg->message->reply_to_message->forward_from->id, $messageId->message_id),
             ]);
         }
