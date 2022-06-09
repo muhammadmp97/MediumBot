@@ -3,5 +3,6 @@
     "owner_id": "0123456789",
     "language": "english",
     "protect_content": false,
-    "debug_mode": true
+    "debug_mode": true,
+    "blocked_users": []
 }
