@@ -30,6 +30,35 @@ try {
         }
     });
 
+    $tg->listen('!block', function () use ($tg, $settings, $strings) {
+        if ($tg->user->id != $settings->owner_id) {
+            return;
+        }
+
+        if (! property_exists($tg->message, 'reply_to_message')) {
+            return;
+        }
+
+        $userId = $tg->message->reply_to_message->forward_from->id;
+
+        if (in_array($userId, $settings->blocked_users)) {
+            $tg->sendMessage([
+                'chat_id' => $settings->owner_id,
+                'reply_to_message_id' => $tg->message->message_id,
+                'text' => $strings->user_already_blocked,
+            ]);
+        } else {
+            $settings->blocked_users[] = $userId;
+            file_put_contents('../resources/settings.json', json_encode($settings));
+
+            $tg->sendMessage([
+                'chat_id' => $settings->owner_id,
+                'reply_to_message_id' => $tg->message->message_id,
+                'text' => $strings->user_blocked,
+            ]);
+        }
+    });
+
     if ($tg->user->id == $settings->owner_id) {
         try {
             $messageId = $tg->copyMessage([
@@ -59,6 +88,10 @@ try {
             ]);
         }
     } else {
+        if (in_array($tg->user->id, $settings->blocked_users)) {
+            die;
+        }
+
         $tg->forwardMessage([
             'from_chat_id' => $tg->user->id,
             'chat_id' => $settings->owner_id,

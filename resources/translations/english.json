@@ -1,5 +1,7 @@
 {
     "message_sent": "Your message has been sent!",
     "message_deleted": "This message was deleted!",
-    "blocked_by_user": "❕ This user has blocked the bot!"
+    "blocked_by_user": "❕ This user has blocked the bot!",
+    "user_blocked": "This user is now blocked.",
+    "user_already_blocked": "❕ This user has already been blocked!"
 }
