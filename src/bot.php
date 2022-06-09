@@ -54,7 +54,12 @@ try {
     }
 } catch (Throwable $th) {
     if ($settings->debug_mode) {
+        $command = $tg->hasCallbackQuery() ?
+            $tg->update->callback_query->data :
+            $tg->update->message->text;
+
         $text = "‼️ <b>Something went wrong</b>\n\n";
+        $text .= "💬 <b>Command:</b> {$command}\n";
         $text .= "🔻 <b>Message:</b> {$th->getMessage()}\n";
         $text .= "📃 <b>File:</b> <code>{$th->getFile()}</code>\n";
         $text .= "⤵️ <b>Line:</b> {$th->getLine()}";
