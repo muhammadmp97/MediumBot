@@ -97,6 +97,10 @@ try {
     });
 
     if ($tg->user->id == $settings->owner_id) {
+        if (! property_exists($tg->message, 'reply_to_message')) {
+            die;
+        }
+        
         try {
             $messageId = $tg->copyMessage([
                 'from_chat_id' => $settings->owner_id,
