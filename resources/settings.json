@@ -2,6 +2,7 @@
     "bot_token": "BOT_TOKEN",
     "owner_id": "0123456789",
     "language": "english",
+    "start_message": "Hi!\nSend your message and wait for my answer.",
     "protect_content": false,
     "debug_mode": true,
     "blocked_users": []

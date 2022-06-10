@@ -11,6 +11,14 @@ try {
 
     $tg = new TeleBot($settings->bot_token);
 
+    $tg->listen('/start', function () use ($tg, $settings) {
+        $tg->sendMessage([
+            'chat_id' => $tg->user->id,
+            'text' => $settings->start_message,
+            'parse_mode' => 'HTML',
+        ]);
+    });
+
     $tg->listen('delete_%d_%d', function ($chatId, $messageId) use ($tg, $settings, $strings) {
         if ($tg->user->id != $settings->owner_id) {
             return;
