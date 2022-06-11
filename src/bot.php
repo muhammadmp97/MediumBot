@@ -104,6 +104,29 @@ try {
         }
     });
 
+    $tg->listen('!setstartmessage', function () use ($tg, $settings, $strings) {
+        if ($tg->user->id != $settings->owner_id) {
+            return;
+        }
+
+        if (! $tg->isReply()) {
+            return;
+        }
+
+        if (! $tg->message->reply_to_message->text) {
+            return;
+        }
+
+        $settings->start_message = $tg->message->reply_to_message->text;
+        file_put_contents('../resources/settings.json', json_encode($settings));
+
+        $tg->sendMessage([
+            'chat_id' => $settings->owner_id,
+            'reply_to_message_id' => $tg->message->reply_to_message->message_id,
+            'text' => $strings->start_message_changed,
+        ]);
+    });
+
     if ($tg->user->id == $settings->owner_id) {
         if (! $tg->isReply()) {
             die;
