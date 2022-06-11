@@ -14,7 +14,8 @@
             "Webpajooh\\Mediumbot\\": "src/"
         },
         "files": [
-            "./src/includes/keyboards.php"
+            "./src/includes/keyboards.php",
+            "./src/includes/extensions.php"
         ]
     },
     "require": {

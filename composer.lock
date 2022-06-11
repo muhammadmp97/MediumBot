@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "webpajooh/telebot",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebPajooh/TeleBot.git",
-                "reference": "95006cbff3f611b18043e8b2fe7c85c18727ec6f"
+                "reference": "705ea81e9d86cd2494e271c84d21b0d8f4302166"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebPajooh/TeleBot/zipball/95006cbff3f611b18043e8b2fe7c85c18727ec6f",
-                "reference": "95006cbff3f611b18043e8b2fe7c85c18727ec6f",
+                "url": "https://api.github.com/repos/WebPajooh/TeleBot/zipball/705ea81e9d86cd2494e271c84d21b0d8f4302166",
+                "reference": "705ea81e9d86cd2494e271c84d21b0d8f4302166",
                 "shasum": ""
             },
             "require": {
@@ -52,9 +52,9 @@
             ],
             "support": {
                 "issues": "https://github.com/WebPajooh/TeleBot/issues",
-                "source": "https://github.com/WebPajooh/TeleBot/tree/v1.3.0"
+                "source": "https://github.com/WebPajooh/TeleBot/tree/v1.4.0"
             },
-            "time": "2022-06-05T17:05:36+00:00"
+            "time": "2022-06-11T06:15:46+00:00"
         }
     ],
     "packages-dev": [],

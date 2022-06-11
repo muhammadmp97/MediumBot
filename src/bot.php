@@ -43,7 +43,7 @@ try {
             return;
         }
 
-        if (! property_exists($tg->message, 'reply_to_message')) {
+        if (! $tg->isReply()) {
             return;
         }
 
@@ -76,7 +76,7 @@ try {
             return;
         }
 
-        if (! property_exists($tg->message, 'reply_to_message')) {
+        if (! $tg->isReply()) {
             return;
         }
 
@@ -105,7 +105,7 @@ try {
     });
 
     if ($tg->user->id == $settings->owner_id) {
-        if (! property_exists($tg->message, 'reply_to_message')) {
+        if (! $tg->isReply()) {
             die;
         }
 
