@@ -1,0 +1,12 @@
+{
+    "message_sent": "پیام شما ارسال گردید!",
+    "undo": "❌ حذف",
+    "message_deleted": "این پیام حذف شده است.",
+    "blocked_by_user": "❕ این کاربر، ربات را مسدود کرده است!",
+    "user_blocked": "کاربر مسدود گردید.",
+    "user_already_blocked": "❕ این کاربر از قبل مسدود شده بود!",
+    "user_unblocked": "این کاربر دیگر مسدود نیست.",
+    "user_not_blocked": "❕ این کاربر از قبل مسدود نشده بود!",
+    "start_message_changed": "از این پس، این پیام به عنوان پیام شروع نمایش داده می‌شود.",
+    "forward_privacy_error": "⛔️ متأسفم، اما برای ارسال پیام باید در <b>Settings > Privacy and Security > Forwarded Messages</b> حریم خصوصی فوروارد را خاموش کنید."
+}
