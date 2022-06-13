@@ -160,7 +160,7 @@ try {
                 'chat_id' => $settings->owner_id,
                 'reply_to_message_id' => $tg->message->message_id,
                 'text' => $strings->message_sent,
-                'reply_markup' => getUndoKeyboard($tg->message->reply_to_message->forward_from->id, $messageId->message_id),
+                'reply_markup' => getUndoKeyboard($strings->undo, $tg->message->reply_to_message->forward_from->id, $messageId->message_id),
             ]);
         }
     } else {
