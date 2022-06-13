@@ -1,0 +1,12 @@
+{
+    "message_sent": "تم إرسال رسالتك!",
+    "undo": "❌ إلغاء الإرسال",
+    "message_deleted": "تم حذف هذه الرسالة!",
+    "blocked_by_user": "❕ قد قام هذا المستخدم بحظر البوت!",
+    "user_blocked": "تم حظر هذا المستخدم.",
+    "user_already_blocked": "❕ ليس المستخدم محظوراً!",
+    "user_unblocked": "تم إلغاء حظر المستخدم.",
+    "user_not_blocked": "❕ المستخدم غير محظور!",
+    "start_message_changed": "من الآن، سيتم عرض هذا النص كرسالة بدء.",
+    "forward_privacy_error": "⛔️ عذراً، لا يمكن إرسال الرسالة حتى يكون اسمك مكشوفاً؛ راجع:\n<b>Settings > Privacy and Security > Forwarded Messages</b>"
+}
