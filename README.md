@@ -32,4 +32,4 @@ Currently, we support English, Arabic and Persian. The translation files are sim
 | `!setstartmessage` | Updates the starting message to replied message | No |
 
 ## ⚠️ Issues  or  Pull Requests
-Feel comfortable to report bugs, but we're strict about merging pull relquests add new features because we prefer keeping it as simple as possible.
+Feel comfortable to report bugs, but we're strict about merging pull requests add new features because we prefer keeping it as simple as possible.
