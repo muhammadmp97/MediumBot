@@ -168,11 +168,25 @@ try {
             die;
         }
 
-        $tg->forwardMessage([
+        $forwardedMessage = $tg->forwardMessage([
             'from_chat_id' => $tg->user->id,
             'chat_id' => $settings->owner_id,
             'message_id' => $tg->message->message_id,
         ]);
+
+        if (property_exists($forwardedMessage, 'forward_sender_name')) {
+            $tg->deleteMessage([
+                'chat_id' => $settings->owner_id,
+                'message_id' => $forwardedMessage->message_id,
+            ]);
+
+            $tg->sendMessage([
+                'chat_id' => $tg->user->id,
+                'reply_to_message_id' => $tg->message->message_id,
+                'text' => $strings->forward_privacy_error,
+                'parse_mode' => 'HTML',
+            ]);
+        }
     }
 } catch (Throwable $th) {
     if ($settings->debug_mode) {
