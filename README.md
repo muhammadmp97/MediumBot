@@ -19,9 +19,6 @@ start_message | The message to show for /start command | Hello!\nHow can I help 
 protect_content | Protects the contents of the sent message from forwarding and saving | true
 debug_mode | Sends error messages | false
 
-## Translations
-Currently, we support English, Arabic and Persian. The translation files are simple json files located in `resources/translations` directory, containing some strings used by bot. If you needed to customize yours, just edit the language file and upload it to your server.
-
 ## Commands
 
 | Command | Description | Public |
@@ -30,6 +27,9 @@ Currently, we support English, Arabic and Persian. The translation files are sim
 | `!block` | Blocks the user whose message is replied | No |
 | `!unblock` | Unblocks the user whose message is replied | No |
 | `!setstartmessage` | Updates the starting message to replied message | No |
+
+## Translations
+Currently, we support English, Arabic and Persian. The translation files are simple json files located in `resources/translations` directory, containing some strings used by bot. If you needed to customize yours, just edit the language file and upload it to your server.
 
 ## ⚠️ Issues  or  Pull Requests
 Feel comfortable to report bugs, but we're strict about merging pull requests add new features because we prefer keeping it as simple as possible.
