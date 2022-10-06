@@ -11,6 +11,14 @@ try {
 
     $tg = new TeleBot($settings->bot_token);
 
+    if ($settings->offline_message && $tg->user->id != $settings->owner_id) {
+        return $tg->sendMessage([
+            'chat_id' => $tg->user->id,
+            'text' => $settings->offline_message,
+            'parse_mode' => 'HTML',
+        ]);
+    }
+
     $tg->listen('/start', function () use ($tg, $settings) {
         $tg->sendMessage([
             'chat_id' => $tg->user->id,
@@ -124,6 +132,44 @@ try {
             'chat_id' => $settings->owner_id,
             'reply_to_message_id' => $tg->message->reply_to_message->message_id,
             'text' => $strings->start_message_changed,
+        ]);
+    });
+
+    $tg->listen('!offline', function () use ($tg, $settings, $strings) {
+        if ($tg->user->id != $settings->owner_id) {
+            return;
+        }
+
+        if (! $tg->isReply()) {
+            return;
+        }
+
+        if (! $tg->message->reply_to_message->text) {
+            return;
+        }
+
+        $settings->offline_message = $tg->message->reply_to_message->text;
+        file_put_contents('../resources/settings.json', json_encode($settings));
+
+        $tg->sendMessage([
+            'chat_id' => $settings->owner_id,
+            'reply_to_message_id' => $tg->message->reply_to_message->message_id,
+            'text' => $strings->offline_mode_activated,
+        ]);
+    });
+
+    $tg->listen('!online', function () use ($tg, $settings, $strings) {
+        if ($tg->user->id != $settings->owner_id) {
+            return;
+        }
+
+        $settings->offline_message = "";
+        file_put_contents('../resources/settings.json', json_encode($settings));
+
+        $tg->sendMessage([
+            'chat_id' => $settings->owner_id,
+            'reply_to_message_id' => $tg->message->reply_to_message->message_id,
+            'text' => $strings->offline_mode_diactivated,
         ]);
     });
 

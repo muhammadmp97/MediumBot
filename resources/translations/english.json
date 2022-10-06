@@ -8,5 +8,7 @@
     "user_unblocked": "User unblocked successfully.",
     "user_not_blocked": "❕ This user is not blocked!",
     "start_message_changed": "From now on, this text will be displayed as start message.",
+    "offline_mode_activated": "Offline mode is activated and this message will be displayed to users.",
+    "offline_mode_diactivated": "Bot is online!",
     "forward_privacy_error": "⛔️ Sorry, but you must disable your forward privacy in <b>Settings > Privacy and Security > Forwarded Messages</b> before sending messages."
 }

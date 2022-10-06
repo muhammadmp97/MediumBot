@@ -8,5 +8,7 @@
     "user_unblocked": "این کاربر دیگر مسدود نیست.",
     "user_not_blocked": "❕ این کاربر از قبل مسدود نشده بود!",
     "start_message_changed": "از این پس، این پیام به عنوان پیام شروع نمایش داده می‌شود.",
+    "offline_mode_activated": "حالت آفلاین فعال و این متن به کاربران نمایش داده خواهد شد.",
+    "offline_mode_diactivated": "ربات آنلاین است!",
     "forward_privacy_error": "⛔️ متأسفم، اما برای ارسال پیام باید در <b>Settings > Privacy and Security > Forwarded Messages</b> حریم خصوصی فوروارد را خاموش کنید."
 }

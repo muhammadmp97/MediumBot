@@ -27,6 +27,8 @@ debug_mode | Sends error messages | false
 | `!block` | Blocks the user whose message is replied | No |
 | `!unblock` | Unblocks the user whose message is replied | No |
 | `!setstartmessage` | Updates the starting message to replied message | No |
+| `!offline` | Actives offline mode and updates the offline mode message to replied message | No |
+| `!online` | Deactivates offline mode and bot will be able to receive messages | No |
 
 ## Translations
 Currently, we support English, Arabic and Persian. The translation files are simple json files located in `resources/translations` directory, containing some strings used by bot. If you needed to customize yours, just edit the language file and upload it to your server.

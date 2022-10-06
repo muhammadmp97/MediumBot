@@ -4,6 +4,7 @@
     "language": "english",
     "start_message": "Hi!\nSend your message and wait for my answer.",
     "protect_content": false,
+    "offline_message": "",
     "debug_mode": true,
     "blocked_users": []
 }
