@@ -16,6 +16,7 @@ That's it! 😌
 owner_id | Your ID | 301126514
 language | Bot language | english
 start_message | The message to show for /start command | Hello!\nHow can I help you?
+offline_message | The message to show in offline mode | Sorry... I can't answer your questions now.
 protect_content | Protects the contents of the sent message from forwarding and saving | true
 debug_mode | Sends error messages | false
 
