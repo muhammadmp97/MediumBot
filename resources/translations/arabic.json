@@ -10,5 +10,6 @@
     "start_message_changed": "من الآن، سيتم عرض هذا النص كرسالة بدء.",
     "offline_mode_activated": "تم تنشيط وضع أوفلاين وسيتم عرض هذا النص للمستخدمين.",
     "offline_mode_diactivated": "البوت جاهز لاستقبال الرسائل!",
-    "forward_privacy_error": "⛔️ عذراً، لا يمكن إرسال الرسالة حتى يكون اسمك مكشوفاً؛ راجع:\n<b>Settings > Privacy and Security > Forwarded Messages</b>"
+    "forward_privacy_error": "⛔️ عذراً، لا يمكن إرسال الرسالة حتى يكون اسمك مكشوفاً؛ راجع:\n<b>Settings > Privacy and Security > Forwarded Messages</b>",
+    "no_forward": "⛔️ لا يمكنك إرسال رسائل الآخرين للبوت!"
 }

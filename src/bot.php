@@ -214,6 +214,16 @@ try {
             die;
         }
 
+        if (property_exists($tg->message, 'forward_date')) {
+            $tg->sendMessage([
+                'chat_id' => $tg->user->id,
+                'reply_to_message_id' => $tg->message->message_id,
+                'text' => $strings->no_forward,
+            ]);
+
+            die;
+        }
+
         $forwardedMessage = $tg->forwardMessage([
             'from_chat_id' => $tg->user->id,
             'chat_id' => $settings->owner_id,
